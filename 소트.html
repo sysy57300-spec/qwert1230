@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>CNBLUE 노래 소트</title>
+<script type="text/javascript">
+<!--
+//*********************************************************
+//
+// ?価するメンバ?の名前のリスト
+//
+// この部分を変更して下さい。名前の削除・追加も可?です。
+// 名前を引用符(")で括り、コン?(,)で区切って下さい。
+// 但し、リストの最後にはコン?を入れてはいけません。
+//
+//*********************************************************
+var namMember = new Array(
+
+"<img src=> <br>외톨이야</br>",
+"<img src=> <br>Love Revolution</br>",
+"<img src=> <br>Y, Why...</br>",
+"<img src=> <br>Now Or Never</br>",
+"<img src=> <br>그럴 겁니다... 잊을 겁니다...</br>",
+"<img src=> <br>Love</br>",
+"<img src=> <br>Sweet Holiday</br>",
+"<img src=> <br>Black Flower</br>",
+"<img src=> <br>Tattoo</br>",
+"<img src=> <br>사랑 빛</br>",
+"<img src=> <br>Let's Go Crazy</br>",
+"<img src=> <br>직감</br>",
+"<img src=> <br>Love Girl</br>",
+"<img src=> <br>상상 (Imagine)</br>",
+"<img src=> <br>I Don't Know Why</br>",
+"<img src=> <br>사랑은 비를 타고</br>",
+"<img src=> <br>Lie</br>",
+"<img src=> <br>One Time</br>",
+"<img src=> <br>Just Please</br>",
+"<img src=> <br>Wanna Be Like U</br>",
+"<img src=> <br>Ready N Go</br>",
+"<img src=> <br>고마워요</br>",
+"<img src=> <br>One Of A Kind (Bonus Track)</br>",
+"<img src=> <br>그래요</br>",
+"<img src=> <br>Try Again, Smile Again</br>",
+"<img src=> <br>Don't Say Good Bay</br>",
+"<img src=> <br>Hey You</br>",
+"<img src=> <br>아직 사랑한다</br>",
+"<img src=> <br>Dream boy</br>",
+"<img src=> <br>Rock n' Roll</br>",
+"<img src=> <br>Run</br>",
+"<img src=> <br>In My Head</br>",
+"<img src=> <br>Friday (T.G.I. Friday's Brand Song)</br>",
+"<img src=> <br>I'm Sorry</br>",
+"<img src=> <br>Coffee Shop</br>",
+"<img src=> <br>나 그대보다</br>",
+"<img src=> <br>나란 남자</br>",
+"<img src=> <br>라라라</br>",
+"<img src=> <br>Feel Good</br>",
+"<img src=> <br>Can't Stop</br>",
+"<img src=> <br>Diamond Girl</br>",
+"<img src=> <br>독한 사랑</br>",
+"<img src=> <br>잠못 드는 밤</br>",
+"<img src=> <br>Love Is...</br>",
+"<img src=> <br>아이의 노래</br>",
+"<img src=> <br>Ryu Can Do It</br>",
+"<img src=> <br>신데렐라 (Cinderella)</br>",
+"<img src=> <br>숨바꼭질 (Hide and Seek)</br>",
+"<img src=> <br>롤러코스터 (Roller Coaster)</br>",
+"<img src=> <br>Domino (Feat. 휘인 Of 마마무)</br>",
+"<img src=> <br>Hero</br>",
+"<img src=> <br>Drunken Night</br>",
+"<img src=> <br>Catch Me</br>",
+"<img src=> <br>Hold My Hand</br>",
+"<img src=> <br>Control</br>",
+"<img src=> <br>Radio</br>",
+"<img src=> <br>발자국 (Footsteps)</br>",
+"<img src=> <br>이렇게 예뻤나 (YOU'RE SO FINE)</br>",
+"<img src=> <br>THE SEASONS</br>",
+"<img src=> <br>YOUNG FOREVER</br>",
+"<img src=> <br>WITHOUT YOU</br>",
+"<img src=> <br>STAY SOBER</br>",
+"<img src=> <br>헷갈리게 (Between US)</br>",
+"<img src=> <br>It's You</br>",
+"<img src=> <br>끊지마 (Calling You)</br>",
+"<img src=> <br>When I Was Young</br>",
+"<img src=> <br>마니또 (Manito)</br>",
+"<img src=> <br>Royal Rumble</br>",
+"<img src=> <br>과거 현재 미래 (Then, Now and Forever)</br>",
+"<img src=> <br>오늘은 이만 (Till Then)</br>",
+"<img src=> <br>없다 (In Time)</br>",
+"<img src=> <br>추워졌네. (Winter Again.)</br>",
+"<img src=> <br>Blue Stars</br>",
+"<img src=> <br>싹둑 (Love Cut)</br>",
+"<img src=> <br>99%</br>",
+"<img src=> <br>Hold Me Back</br>",
+"<img src=> <br>엉터리 (Nothing)</br>",
+"<img src=> <br>Time Capsule</br>",
+"<img src=> <br>그리운건 그대일까 그때일까 (A Sleepless Night)</br>",
+"<img src=> <br>BAD BAD</br>",
+"<img src=> <br>RACER</br>",
+"<img src=> <br>가장 사랑했던 너에게 (To. My Love)</br>",
+"<img src=> <br>Personal Color</br>",
+"<img src=> <br>Tonight</br>",
+"<img src=> <br>Ready, Set, Go!</br>",
+"<img src=> <br>Killer Joy</br>",
+"<img src=> <br>Lowkey</br>",
+"<img src=> <br>To The Moon And Back</br>",
+"<img src=> <br>Bliss</br>",
+"<img src=> <br>그러나 꽃이었다 (Still, a Flower)</br>",
+"<img src=> <br>우리 다시 만나는 날 (Again)</br>",
+"<img src=> <br>기억의 온도 (The Temperature of Memory)</br>",
+"<img src=> <br>사소한 것들이 좋아서 (Little Things)</br>",
+"<img src=> <br>인생찬가 (Anthem of Life)</br>"
+
+
+
+
+);
+//*********************************************************
+
+var lstMember = new Array();
+var parent = new Array();
+var equal = new Array();
+var rec = new Array();
+var cmp1,cmp2;
+var head1,head2;
+var nrec;
+
+var numQuestion;
+var totalSize;
+var finishSize;
+var finishFlag;
+
+//変数の初期化+++++++++++++++++++++++++++++++++++++++++++++
+function initList(){
+var n = 0;
+var mid;
+var i;
+
+//??トすべき配列
+lstMember[n] = new Array();
+for (i=0; i<namMember.length; i++) {
+lstMember[n][i] = i;
+}
+parent[n] = -1;
+totalSize = 0;
+n++;
+
+for (i=0; i<lstMember.length; i++) {
+//要素数が２以上なら２分割し、
+//分割された配列をlstMemberの最後に加える
+if(lstMember[i].length>=2) {
+mid = Math.ceil(lstMember[i].length/2);
+lstMember[n] = new Array();
+lstMember[n] = lstMember[i].slice(0,mid);
+totalSize += lstMember[n].length;
+parent[n] = i;
+n++;
+lstMember[n] = new Array();
+lstMember[n] = lstMember[i].slice(mid,lstMember[i].length);
+totalSize += lstMember[n].length;
+parent[n] = i;
+n++;
+}
+}
+
+//保存用配列
+for (i=0; i<namMember.length; i++) {
+rec[i] = 0;
+}
+nrec = 0;
+
+//引き分けの結果を保存するリスト
+//キ?：リンク始?の値
+// 値 ：リンク終?の値
+for (i=0; i<=namMember.length; i++) {
+equal[i] = -1;
+}
+
+cmp1 = lstMember.length-2;
+cmp2 = lstMember.length-1;
+head1 = 0;
+head2 = 0;
+numQuestion = 1;
+finishSize = 0;
+finishFlag = 0;
+}
+
+//リストの??ト+++++++++++++++++++++++++++++++++++++++++++
+//flag：比較結果
+//  -1：左を選択
+//   0：引き分け
+//   1：右を選択
+function sortList(flag){
+var i;
+var str;
+
+//recに保存
+if (flag<0) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+}
+else if (flag>0) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+else {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+equal[rec[nrec-1]] = lstMember[cmp2][head2];
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+while (equal[rec[nrec-1]]!=-1) {
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+
+//片方のリストを走査し終えた後の処理
+if (head1<lstMember[cmp1].length && head2==lstMember[cmp2].length) {
+//リストcmp2が走査済 - リストcmp1の残りをコピ?
+while (head1<lstMember[cmp1].length){
+rec[nrec] = lstMember[cmp1][head1];
+head1++;
+nrec++;
+finishSize++;
+}
+}
+else if (head1==lstMember[cmp1].length && head2<lstMember[cmp2].length) {
+//リストcmp1が走査済 - リストcmp2の残りをコピ?
+while (head2<lstMember[cmp2].length){
+rec[nrec] = lstMember[cmp2][head2];
+head2++;
+nrec++;
+finishSize++;
+}
+}
+
+//両方のリストの最後に到達した場合は
+//親リストを更新する
+if (head1==lstMember[cmp1].length && head2==lstMember[cmp2].length) {
+for (i=0; i<lstMember[cmp1].length+lstMember[cmp2].length; i++) {
+lstMember[parent[cmp1]][i] = rec[i];
+}
+lstMember.pop();
+lstMember.pop();
+cmp1 = cmp1-2;
+cmp2 = cmp2-2;
+head1 = 0;
+head2 = 0;
+
+//新しい比較を行う前にrecを初期化
+if (head1==0 && head2==0) {
+for (i=0; i<namMember.length; i++) {
+rec[i] = 0;
+}
+nrec = 0;
+}
+}
+
+if (cmp1<0) {
+str = "Battle No."+(numQuestion-1)+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
+document.getElementById("battleNumber").innerHTML = str;
+
+showResult();
+finishFlag = 1;
+}
+else {
+showImage();
+}
+}
+
+//結果の?示+++++++++++++++++++++++++++++++++++++++++++++++
+function showResult() {
+var ranking = 1;
+var sameRank = 1;
+var str = "";
+var i;
+
+str += "<table style=\"width:200px; font-size:12px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
+str += "<tr><td style=\"color:#ffffff; background-color:#000; text-align:center;\">순위<\/td><td style=\"color:#ffffff; background-color:#000; text-align:center;\">이름<\/td><\/tr>";
+
+for (i=0; i<namMember.length; i++) {
+str += "<tr><td style=\"border:1px solid #000; text-align:right; padding-right:5px;\">"+ranking+"<\/td><td style=\"border:1px solid #000; padding-left:5px;\">"+namMember[lstMember[0][i]]+"<\/td><\/tr>";
+if (i<namMember.length-1) {
+if (equal[lstMember[0][i]]==lstMember[0][i+1]) {
+sameRank++;
+} else {
+ranking += sameRank;
+sameRank = 1;
+}
+}
+}
+str += "<\/table>";
+
+document.getElementById("resultField").innerHTML = str;
+}
+
+//比較する２つ要素の?示+++++++++++++++++++++++++++++++++++
+function showImage() {
+var str0 = "Battle No."+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
+var str1 = ""+toNameFace(lstMember[cmp1][head1]);
+var str2 = ""+toNameFace(lstMember[cmp2][head2]);
+
+document.getElementById("battleNumber").innerHTML = str0;
+document.getElementById("leftField").innerHTML = str1;
+document.getElementById("rightField").innerHTML = str2;
+
+numQuestion++;
+}
+
+//数値を名前（顔文字）に変換+++++++++++++++++++++++++++++++
+function toNameFace(n){
+var str = namMember[n];
+
+//顔文字を追加する場合は以下のコメントアウトを外す
+//namMemberのインデックスと矛盾しないように注意
+/*
+str += "<br>────<br>";
+switch(n) {
+//case -1 はサンプルなので削除すること
+case -1: str+="（ ´∀｀）";break;
+default: str+=""+n;
+}
+*/
+return str;
+}
+//-->
+</script>
+<style type="text/css">
+<!--
+/**********************************************************
+
+ ?のス?イルを変更する場合はここを編集してください。
+
+**********************************************************/
+#mainTable{
+font-size: 12px;
+font-family: '돋움',sans-serif;
+text-align: center;
+vertical-align: middle;
+width: 410px;
+margin-left: auto;
+margin-right: auto;
+border-collapse: separate;
+border-spacing: 10px 5px;
+}
+#leftField{
+width: 120px;
+height: 150px;
+border: 1px solid #000;
+}
+#rightField{
+width: 120px;
+height: 150px;
+border: 1px solid #000;
+}
+.middleField{
+width: 120px;
+height: 70px;
+border: 1px solid #000;
+}
+//-->
+<!--
+A{
+  text-decoration : none;
+}
+-->
+<!--
+a:hover{color:#99ccff;}
+-->
+</style>
+<meta name="generator" content="Namo WebEditor(Trial)">
+<meta http-equiv="content-type" content="text/html; charset=utf-8"></head>
+
+<body text="#000000" bgcolor="#ffffff" link="#0099ff" vlink="#0099ff" alink="#0099ff">
+<table id="mainTable" align="center">
+<tr>
+        <td id="battleNumber" colspan="3" style="padding-bottom: 10px;">
+            <p>&nbsp;</p>
+        </td>
+</tr>
+<tr>
+<td id="leftField" onClick="if(finishFlag==0)sortList(-1);" rowspan="2">
+&nbsp;
+</td>
+<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
+둘 다 좋다
+</td>
+<td id="rightField" onClick="if(finishFlag==0)sortList(1);" rowspan="2">
+</td>
+</tr>
+<tr>
+<td class="middleField" onClick="if(finishFlag==0)sortList(0);">
+모르겠다
+</td>
+</tr>
+</table><br><br>
+<div id="resultField" style="text-align:center;">
+    <p><font size="2" face="돋움"><span style="">CNBLUE 노래 소트</font></p>
+    <p><font size="2" face="돋움">0</font></p>
+
+</div>
+<script type="text/javascript">
+<!--
+initList();
+showImage();
+//-->
+</script>
+
+</body>
+</html>
